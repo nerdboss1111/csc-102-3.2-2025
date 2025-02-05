@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines the document type and version of HTML -->
+    <meta charset="UTF-8">
+    
+    <!-- Ensures proper rendering and scaling on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage that appears in the browser tab -->
+    <title>Palindrome Validator</title>
+    
+    <!-- Links the external CSS file for styling -->
+    <link rel="stylesheet" href="strings.css">
+</head>
+<body>
+
+    <!-- ✅ VALIDATION FORM SECTION -->
+    <!-- This section prompts the user to enter their name and zip code -->
+    <div class="validation-container">
+        <!-- Main heading -->
+        <h1>Welcome!</h1>
+        
+        <!-- Instructional text for the user -->
+        <p>Enter your details to unlock the game:</p>
+        
+        <!-- Form for validation with an onsubmit function -->
+        <form id="validationForm" onsubmit="return validateForm()">
+            <!-- Input field for the user's first name -->
+            <input type="text" id="firstName" class="input-field" placeholder="First Name" required />
+            
+            <!-- Input field for the user's last name -->
+            <input type="text" id="lastName" class="input-field" placeholder="Last Name" required />
+            
+            <!-- Input field for the user's zip code -->
+            <input type="text" id="zipCode" class="input-field" placeholder="ZIP Code" required />
+            
+            <!-- Error message container (hidden unless needed) -->
+            <p id="error-message" style="color: white; font-weight: bold;"></p>
+            
+            <!-- Submit button to validate input and proceed -->
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- ✅ PALINDROME CHECKER SECTION (Hidden Initially) -->
+    <!-- This section will appear after successful validation -->
+    <div id="palindrome-section" style="display: none;">
+        <!-- Main heading after validation -->
+        <h1>Congrats!</h1>
+
+        <!-- Instructional text for checking palindromes -->
+        <p>You have made it to<br>
+            The Wonderful World of Palindromes!</p>
+        <p>What words and phrases can you come up with <br>
+        that are the same both forward and backward? <br>
+        <br> Try it out! Click EXIT to quit.</p>
+
+        <!-- Palindrome checking form -->
+        <div class="palindrome-container">
+            <form id="palindrome-form">
+                <!-- Input field for user to type a word or phrase -->
+                <input type="text" id="palindrome-input" placeholder="Enter a word or phrase" />
+
+                <!-- ✅ FIXED: Added onclick event to check if input is a palindrome -->
+                <button type="button" id="palindrome-submit" class="btn" onclick="checkPal();">Check Palindrome</button>
+
+                <!-- Exit button to return to the validation form -->
+                <button type="button" class="btn exit-btn" onclick="endLoop();">EXIT</button>
+            </form>
+
+            <!-- Results will be displayed here after checking a palindrome -->
+            <p id="palindrome-output"></p>
+        </div>
+    </div>
+
+    <!-- ✅ JavaScript File Linked -->
+    <!-- This connects the external JavaScript file for logic handling -->
+    <script src="strings.js"></script>
+
+</body>
+</html>
